@@ -81,7 +81,9 @@ song_dict={
       }
 
 song=(
-    (5.0, 'One'),
+    (0.0, 'Press the buttons as they appear!'),
+    (2.0, 'But only with the right number!'),
+    (3.0, 'One'),
     (0.5, 'Two'),
     (0.7, 'Fhree'),
     (0.5, 'Four'),
@@ -126,10 +128,10 @@ song=(
     (0.9, 'My lips taste funny'),
     (0.8, 'After kissing the floor.'),
     (1.7, 'This is The Silly Number Song,'),
-    (1.2, "C'mon everybody sing along!"),
-    (3.6, 'Clap your hands'),
-    (0.8, 'While stomping your feet'),
-    (1.3, 'And sing this Silly Number Sooong!'),
+    (2.2, "C'mon everybody sing along!"),
+    (2.4, 'Clap your hands'),
+    (1.0, 'While stomping your feet'),
+    (1.2, 'And sing this Silly Number Sooong!'),
     (5.0, 'One'),
     (0.2, 'Two'),
     (0.4, 'Three'),
