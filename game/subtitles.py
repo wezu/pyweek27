@@ -1,6 +1,7 @@
 from direct.interval.IntervalGlobal import *
 from game.color_palette import ColorPalette
 
+#this isn't actually used, but I want to keep it
 song_dict={
       5.0:'One,',
       5.5:'two,',
