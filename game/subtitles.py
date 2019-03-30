@@ -4,34 +4,34 @@ from game.color_palette import ColorPalette
 song_dict={
       0.0:'Press the buttons as they appear!',
       2.0: 'But only with the right number!',
-      5.5:'One',
-      5.9:'Two',
-      6.3:'Three',
-      6.9:'Four',
-      7.7:'Standing on my head',
-      8.9:'I can kiss the floor.',
-      10.0:'Five',
-      11.0:'Six',
-      11.5:'Seven',
-      12.0:'Eight',
-      13.0:'My dog eat spaghetti of my plate',
+      5.0:'One',
+      5.5:'Two',
+      6.2:'Three',
+      6.7:'Four',
+      7.3:'Standing on my head',
+      8.5:'I can kiss the floor.',
+      9.8:'Five',
+      10.2:'Six',
+      10.7:'Seven',
+      11.5:'Eight',
+      12.0:'My dog eat spaghetti of my plate',
       14.6:'This is The Silly Number Song,',
       16.8:"C'mon everybody sing along!",
-      19.5:'Clap your hands',
-      20.2:'While stomping your feet',
-      21.7:'And sing this Silly Number Sooong!',
-      26.9:'Nine',
-      27.6:'Ten',
-      28.2:'Eleven',
-      29.0:'Twelve',
-      29.5:'My baby brother',
-      30.5:'Looks like an elf!',
-      32.0:'Thirteen',
-      32.8:'Fourteen',
-      33.3:'Fifteen',
-      33.9:'Sixteen',
-      34.4:"My sistar can't date",
-      35.6:"Until she's fifty.",
+      19.2:'Clap your hands',
+      20.2:'While stamping your feet',
+      21.4:'And sing this Silly Number Sooong!',
+      26.4:'Nine',
+      27.0:'Ten,',
+      27.6:'Eleven,',
+      28.2:'Twelve.',
+      28.8:'My baby brother',
+      30.0:'Looks like an elf!',
+      31.2:'Thirteen',
+      31.8:'Fourteen',
+      32.3:'Fifteen',
+      32.9:'Sixteen',
+      33.4:"My sistar can't date",
+      34.6:"Until she's fifty.",
       36.0:'This is The Silly Number Song,',
       38.3:"C'mon everybody sing along!",
       40.7:'Clap your hands',
@@ -89,9 +89,9 @@ for time, name in song_dict.items():
     t=time
 
 
-def make_song_sequence(text_node):
+def make_song_sequence(text_node, music):
     colors=ColorPalette()
-    s=Sequence()
+    s=Sequence(Func(music.play))
     for delay, text in song:
         c=colors.new_color()
         s.append(Wait(delay))
