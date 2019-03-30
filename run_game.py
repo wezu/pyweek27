@@ -4,14 +4,15 @@ import sys
 import os
 import random
 import math
+import configparser
 from panda3d.core import *
+Config = configparser.ConfigParser()
+Config.read('config.ini')
+#read all options as prc_file_data in case they have p3d meaning
+for section in Config.sections():
+    for option in Config.options(section):
+        load_prc_file_data("", option +' '+Config.get(section, option))
 from direct.showbase.DirectObject import DirectObject
-load_prc_file_data('','textures-power-2 None')
-load_prc_file_data('', 'sync-video 0')
-load_prc_file_data('', 'show-frame-rate-meter  1')
-load_prc_file_data('', 'win-size  1280 720')
-#load_prc_file_data('', 'gl-version 3 2')
-
 from direct.showbase import ShowBase
 from direct.interval.IntervalGlobal import *
 from direct.gui.DirectGui import *
