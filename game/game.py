@@ -75,7 +75,7 @@ class Game(DirectObject):
         self.button.set_pos(0,0,0)
         self.button.set_bin("fixed", 11)
         self.button.hide()
-        self.last_number=self.button['text']
+        self.last_number=None
         self.points=[]
 
         self.fake_button=DirectFrame(frameColor=(1.0, 1.0, 1.0, 1.0),
@@ -107,6 +107,22 @@ class Game(DirectObject):
         self.images_seq=make_image_sequence(self.foreground)
         self.buttons_seq=make_button_sequence(self.button, self.fake_button)
         self.stubtitles_seq=make_song_sequence(self.text_node, self.music)
+        self.stubtitles_seq.append(Wait(7.0))
+        self.stubtitles_seq.append(Func(self.reset))
+
+    def reset(self):
+        taskMgr.remove(self.beat_tsk)
+        self.text_node.set_text('Press any key to start!')
+        self.foreground.hide()
+        self.background.setImage('image/title_screen.png')
+        self.fake_button.hide()
+        self.button.hide()
+        self.points=[]
+        self.beat_count=0
+        self.last_number=None
+
+        base.buttonThrowers[0].node().setButtonDownEvent('buttonDown')
+        self.accept('buttonDown', self.start)
 
     def hide_button(self, task):
         if self.last_number == self.button['text']:
@@ -138,17 +154,12 @@ class Game(DirectObject):
         return task.again
 
     def start(self, event=None):
+        self.score_text_node.set_text('Score: 0')
         self.ignore('buttonDown')
         self.beat_tsk=taskMgr.doMethodLater(0.24, self.beat, 'beat_tsk')
-
-
-
-        #p=Parallel(self.stubtitles_seq, self.images_seq, self.buttons_seq)
-        #p.start()
         self.buttons_seq.start()
         self.stubtitles_seq.start()
         self.images_seq.start()
 
 
-        #self.music.play()
 

@@ -64,11 +64,13 @@ song_dict={
       63.7:'feet1',
       64.0:'feet2',
       64.4:'seagull_along',
-      67.3:'seagull_sing',
+      66.8:'seagull_sing',
       69.4:'troll',
       71.5:'please',
       73.3:'lol',
-      76.7:'is_this',
+      76.7:'song1',
+      79.0:'song2',
+      81.2:'song3'
       }
 
 song=[]
