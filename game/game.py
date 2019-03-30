@@ -141,7 +141,7 @@ class Game(DirectObject):
         self.images_seq=make_image_sequence(self.foreground)
         self.buttons_seq=make_button_sequence(self.button, self.fake_button)
 
-        self.buttons_seq.start()
+        #self.buttons_seq.start()
         self.stubtitles_seq.start()
         self.images_seq.start()
 

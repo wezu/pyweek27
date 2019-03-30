@@ -1,33 +1,40 @@
 from direct.interval.IntervalGlobal import *
 
-#this isn't actually used, but I want to keep it
 song_dict={
-      5.0:'we_are_number_one',
-      5.5:'two',
-      6.2:'free',
-      6.7:'fore',
-      7.3:'head_1',
-      8.5:'head_2',
-      9.8:'Five,',
-      10.2:'six,',
-      10.7:'seven,',
-      11.5:'eight.',
-      12.0:'My dog eat spaghetti of my plate',
-      14.6:'This is The Silly Number Song,',
-      16.8:"C'mon everybody sing along!",
-      19.2:'Clap your hands',
-      20.2:'while stomping your feet',
-      21.4:'and sing this Silly Number Sooong!',
-      26.4:'Nine,',
-      27.0:'ten,',
-      27.6:'eleven,',
-      28.2:'twelve.',
-      28.8:'My baby brother',
-      30.0:'Looks like an elf!',
-      31.2:'Thirteen,',
-      31.8:'fourteen,',
-      32.3:'fifteen,',
-      32.9:'sixteen.',
+      0.0:'hit_the_button',
+      3.5:'brace_yourself',
+      5.5:'we_are_number_one',
+      5.9:'two',
+      6.3:'free',
+      6.9:'fore',
+      7.7:'head_1',
+      8.9:'head_2',
+      10.0:'hi_five',
+      11.0:'six',
+      11.5:'seven_of_nine',
+      12.0:'pieces_of_eight',
+      13.0:'dodge_pasta',
+      14.6:'is_this',
+      16.8:'seagull_along',
+      17.9:'seagull_sing',
+      19.5:'clap_hermione',
+      20.2:'feet1',
+      20.5:'feet2',
+      20.8:'feet1',
+      21.1:'feet2',
+      21.7:'seagull_sing',
+      26.9:'seven_of_megusta',
+      27.6:'10',
+      28.2:'eleven',
+      29.0:'12_gauge',
+      29.5:'baby',
+      30.5:'baby_elf',
+      32.0:'v13',
+      32.8:'m14',
+      33.3:'m15',
+      33.9:'m16',
+    }
+'''
       33.4:"My sistar can't date",
       34.6:"Until she's fifty.",
       36.0:'This is The Silly Number Song,',
@@ -78,10 +85,27 @@ song_dict={
       76.7:'This is The Silly Number Song.',
       79.0:'This is The Silly Number Song!',
       81.2:'This is The Silly Number Song!!'
-      }
+      }'''
 
-song=((1.0, 'hit_the_button'), (4.0, 'we_are_number_one'), (0.5, 'two'), (0.7, 'free'), (0.5, 'fore'), (0.6, 'head_1'), (1.2, 'head_2'))
+song=[]
+t=0
+for time, name in song_dict.items():
+    song.append((round(time-t, 1), name))
+    t=time
+#print(song)
+'''
 
+song=(
+    (0.1, 'hit_the_button'),
+    (4.9, 'we_are_number_one'),
+    (0.5, 'two'),
+    (0.7, 'free'),
+    (0.5, 'fore'),
+    (0.6, 'head_1'),
+    (1.2, 'head_2'),
+    (1.3, 'hi_five'),
+    (0.4, 'six')
+    )#'''
 def make_image_sequence(image_node):
     s=Sequence()
     for delay, img_name in song:
