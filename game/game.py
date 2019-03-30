@@ -10,12 +10,17 @@ from direct.gui.DirectGui import *
 
 from game.subtitles import make_song_sequence
 from game.buttons import make_button_sequence
+from game.images import make_image_sequence
 
 class Game(DirectObject):
     def __init__(self):
-        img=loader.load_texture('image/title_screen.png')
-        self.background= OnscreenImage(image = img, scale=1.0, pos = (0, 0, 0), parent=render2d)
-        #self.background.set_scale(1.1)
+        self.background= OnscreenImage(image = 'image/title_screen.png', scale=1.0, pos = (0, 0, 0), parent=render2d)
+
+        self.foreground=OnscreenImage(image = 'image/we_are_number_one.png', scale=(256, 1, 256), pos = (640, 0, -360), parent=pixel2d)
+        self.foreground.wrt_reparent_to(aspect2d)
+        self.foreground.set_transparency(TransparencyAttrib.M_alpha)
+        self.foreground.set_bin("fixed", 10)
+        self.foreground.hide()
 
         font=loader.load_font('font/oh_whale.otf')
         font.set_outline(outline_color=(0,0,0,1),outline_width=1.0,outline_feather=0.5)
@@ -68,6 +73,7 @@ class Game(DirectObject):
         self.button.wrt_reparent_to(aspect2d)
         self.button.set_transparency(TransparencyAttrib.M_alpha)
         self.button.set_pos(0,0,0)
+        self.button.set_bin("fixed", 11)
         self.button.hide()
         self.last_number=self.button['text']
         self.points=[]
@@ -88,6 +94,7 @@ class Game(DirectObject):
         self.fake_button.wrt_reparent_to(aspect2d)
         self.fake_button.set_transparency(TransparencyAttrib.M_alpha)
         self.fake_button.set_pos(0,0,0)
+        self.button.set_bin("fixed", 11)
         self.fake_button.hide()
 
         base.buttonThrowers[0].node().setButtonDownEvent('buttonDown')
@@ -129,9 +136,15 @@ class Game(DirectObject):
     def start(self, event=None):
         self.ignore('buttonDown')
         self.beat_tsk=taskMgr.doMethodLater(0.24, self.beat, 'beat_tsk')
+
         self.stubtitles_seq=make_song_sequence(self.text_node)
-        self.stubtitles_seq.start()
+        self.images_seq=make_image_sequence(self.foreground)
         self.buttons_seq=make_button_sequence(self.button, self.fake_button)
+
         self.buttons_seq.start()
+        self.stubtitles_seq.start()
+        self.images_seq.start()
+
+
         self.music.play()
 
