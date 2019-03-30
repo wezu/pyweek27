@@ -25,3 +25,9 @@ The Silly Number Song:
 by Messiah and Me Kids
 Creative Commons Attribution 3.0 Unported (CC BY 3.0)
 https://soundcloud.com/michael-czerwinski-3/the-silly-number-song
+
+All images used under the Fair Use or Citation parody clause.
+
+If you are a EU citizen playing this game after the 2019 EU Copyright Directive
+has been implemented please note that this game may be illegal.
+In that case it is advised that you neither download nor play this game.
